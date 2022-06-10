@@ -14,7 +14,7 @@ interface Props {
 const index: NextPage<Props> = ({ data, countProjectsAR }) => {
   const [project, setProject] = useState("");
 
-  const portadas = data.projects.project.slice(0,3);
+  const portadas = data.projects.project.slice(7,10);
 
   const handleChange = (e:any) => {
     setProject(e.target.value)
