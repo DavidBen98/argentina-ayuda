@@ -4,14 +4,26 @@ import styles from '../styles/Home.module.css'
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import Hero from '../src/components/Hero'
 import { getCountProjectsAR, getProjectsAR } from '../services/getDataAPI'
+import {DataProject} from "../types/types"
 
 interface Props {
-  projects: any,
-  countProjectsAR: any,
+  data: DataProject,
+  countProjectsAR: number,
 }
 
-const Home: NextPage<Props> = ({ projects, countProjectsAR }) => {
-  console.log(countProjectsAR)
+export const getStaticProps: GetStaticProps<Props> = async (context) => {
+  const projects = await getProjectsAR()
+  const countProjectsAR = await getCountProjectsAR()
+
+  return {
+      props : {
+        data: projects,
+        countProjectsAR: countProjectsAR,
+      }
+  }
+}
+
+const Home: NextPage<Props> = ({ data, countProjectsAR }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -21,23 +33,12 @@ const Home: NextPage<Props> = ({ projects, countProjectsAR }) => {
       </Head>
 
       <main className={styles.main}>
-        <Hero projects={projects.projects.project} countProjectsAR={countProjectsAR}/>
+        <Hero data={data.projects.project} countProjectsAR={countProjectsAR}/>
       </main>
     </div>
   )
 }
 
-export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const projects = await getProjectsAR()
-  const countProjectsAR = await getCountProjectsAR()
-
-  return {
-      props : {
-      projects: projects,
-      countProjectsAR: countProjectsAR,
-    }
-  }
-}
 
 // export const getStaticPaths: GetStaticPaths = async () => {
 //   // ...

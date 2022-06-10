@@ -3,8 +3,14 @@ import Image from 'next/image'
 import ImgHero from '../assets/hero.jpg'
 import Project from './Project'
 import Link from 'next/link'
+import { Proj } from "../../types/types"
 
-const Hero = ({ projects, countProjectsAR }) => {
+interface Props {
+    data: any,
+    countProjectsAR: number,
+}
+
+const Hero: React.FunctionComponent <Props> = ({ data, countProjectsAR }) => {
   return (
     <section className="text-gray-600 body-font ">
         <div className="container mx-auto flex px-5 h-4/5 md:flex-row flex-col pb-20 justify-center">
@@ -50,14 +56,14 @@ const Hero = ({ projects, countProjectsAR }) => {
             </p>
             </div>
             <div className="flex flex-wrap m-4">
-                {projects.slice(0,6).map((project) => (
+                {data.slice(0,6).map((project: any) => (
                     <Project 
                         data={project}
                         key={project.id}
                         location='hero'
+                        portada = {false}
                     />
-                ))
-                }
+                ))}
             </div>
             <div className='flex'>
                 <Link href="/projects">
