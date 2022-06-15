@@ -1,9 +1,12 @@
 export interface DataProject {
-    projects : Projects
+    projects : Projects,
 }
 
 export interface Projects {
-    project: Proj[]
+    project: Proj[],
+    hasNext: boolean,
+    nextProjectId: number,
+    numberFound : number
 }
 
 export interface Proj {

@@ -8,7 +8,6 @@ import Link from "next/link"
 
 interface Props {
   projects: Proj[],
-  countProjectsAR: number,
 }
 
 const zoomInProperties = {
@@ -33,7 +32,7 @@ const zoomInProperties = {
   ),
 };
 
-const Slider: React.FunctionComponent <Props> = ({ projects, countProjectsAR}) => {
+const Slider: React.FunctionComponent <Props> = ({ projects }) => {
   return (
     <div className="m-10">
 			<Zoom {...zoomInProperties}>

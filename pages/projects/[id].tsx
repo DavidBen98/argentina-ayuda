@@ -1,67 +1,55 @@
 import type {GetStaticPaths, GetStaticProps, NextPage} from "next";
 import type {ParsedUrlQuery} from "querystring";
+import { DataProject, Proj } from "../../types/types";
+import { getProjectsAR, getProject } from "../../services/getDataAPI";
 
-import Link from "next/link";
-
-// import {Store} from "../types";
-// import api from "../api";
-// import StoreCard from "../components/StoreCard";
-
-// interface Props {
-//   store: Store;
-// }
+interface Props {
+  project: DataProject;
+}
 
 interface Params extends ParsedUrlQuery {
   id: string;
 }
 
-// export const getStaticProps: GetStaticProps<Props, Params> = async ({params}) => {
-//   const {id} = params as Params;
-//   const store = await api.fetch(id);
+export const getStaticProps: GetStaticProps<Props, Params> = async ({params}) => {
+  const {id} = params as Params;
+  console.log(id);
+  const project = await getProject(id)
 
-//   if (!store) {
-//     return {
-//       notFound: true,
-//     };
-//   }
+  if (!projects) {
+    return {
+      notFound: true,
+    };
+  }
 
-//   return {
-//     props: {
-//       store,
-//     },
-//   };
-// };
+  return {
+    props: {
+      project,
+    },
+  };
+};
 
-// export const getStaticPaths: GetStaticPaths<Params> = async () => {
-//   const list = await api.list();
+export const getStaticPaths: GetStaticPaths = async () => {
+  const listProjects = await getProjectsAR();
+  const projects = listProjects.projects.project;
 
-//   return {
-//     paths: list.map((store) => ({
-//       params: {
-//         id: store.id,
-//       },
-//     })),
-//     fallback: "blocking",
-//   };
-// };
+  return {
+    paths: projects.map((project: any) => ({
+      params: {
+        id: project.id.toString(),
+      },
+    })),
+    fallback: "blocking",
+  };
+};
 
-// const Store: NextPage<Props> = ({store}) => {
-//   return (
-//     <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-//       <StoreCard store={store} />
-//       <iframe
-//         allowFullScreen
-//         height="450"
-//         loading="lazy"
-//         src={store.location.map}
-//         style={{border: 0, marginTop: 24}}
-//         width="600"
-//       />
-//       <div style={{marginTop: 24, textAlign: "center"}}>
-//         <Link href="/">Volver al inicio</Link>
-//       </div>
-//     </div>
-//   );
-// };
+const projects: NextPage<Props> = ({project}) => {
+  console.log(project.projects.project[0]);
+  return (
+    <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
 
-// export default Store;
+    </div>
+  );
+};
+
+export default projects;

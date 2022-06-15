@@ -24,7 +24,7 @@ const Project: React.FunctionComponent <Props> = ({ data, location, portada}) =>
         id: data.id.toString()
     }
 
-    if (location === 'hero'){
+    if (location === 'hero' || !portada){
         return (
           <div className="xl:w-1/3 md:w-1/2 p-4 min-h-86">
               <div className="bg-gray-100 p-6 rounded-lg flex flex-wrap">
@@ -47,9 +47,10 @@ const Project: React.FunctionComponent <Props> = ({ data, location, portada}) =>
         )
     }
 
-    if (location === 'projects'){
+    // if (location === 'projects'){
+        //Portada
         return (  
-            <div className={portada? "absolute m-auto top-0 bottom-0 max-h-min rounded w-full flex justify-center align-center": "xl:w-1/3 md:w-1/2 p-4 min-h-86"}>
+            <div className="absolute m-auto top-0 bottom-0 max-h-min rounded w-full flex justify-center align-center">
                 <div className="p-6 bg-black/80 rounded-lg flex flex-wrap w-8/12">
                     <h3 className="tracking-widest text-blue-500 text-xs font-medium title-font w-full">
                         {themeName}
@@ -73,13 +74,7 @@ const Project: React.FunctionComponent <Props> = ({ data, location, portada}) =>
                 </div>
             </div>
         )
-    }
-
-    return (
-        <div>
-
-        </div>
-    )
+    // }
 }
 
 export default Project

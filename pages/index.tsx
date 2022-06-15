@@ -8,22 +8,19 @@ import {DataProject} from "../types/types"
 
 interface Props {
   data: DataProject,
-  countProjectsAR: number,
 }
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const projects = await getProjectsAR()
-  const countProjectsAR = await getCountProjectsAR()
 
   return {
       props : {
         data: projects,
-        countProjectsAR: countProjectsAR,
       }
   }
 }
 
-const Home: NextPage<Props> = ({ data, countProjectsAR }) => {
+const Home: NextPage<Props> = ({ data }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -33,7 +30,7 @@ const Home: NextPage<Props> = ({ data, countProjectsAR }) => {
       </Head>
 
       <main className={styles.main}>
-        <Hero data={data.projects.project} countProjectsAR={countProjectsAR}/>
+        <Hero data={data}/>
       </main>
     </div>
   )

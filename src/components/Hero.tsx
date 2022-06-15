@@ -3,14 +3,13 @@ import Image from 'next/image'
 import ImgHero from '../assets/hero.jpg'
 import Project from './Project'
 import Link from 'next/link'
-import { Proj } from "../../types/types"
+import { DataProject, Proj } from "../../types/types"
 
 interface Props {
-    data: any,
-    countProjectsAR: number,
+    data: DataProject,
 }
 
-const Hero: React.FunctionComponent <Props> = ({ data, countProjectsAR }) => {
+const Hero: React.FunctionComponent <Props> = ({ data }) => {
   return (
     <section className="text-gray-600 body-font ">
         <div className="container mx-auto flex px-5 h-4/5 md:flex-row flex-col pb-20 justify-center">
@@ -35,9 +34,9 @@ const Hero: React.FunctionComponent <Props> = ({ data, countProjectsAR }) => {
                 </div>
             </div>
             <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 sm:m-auto">
-            <Image width="720px" height="600px" className="object-cover object-center rounded" alt="hero" src={ImgHero} />
+                <Image width="720px" height="600px" className="object-cover object-center rounded" alt="hero" src={ImgHero} />
+            </div>
         </div>
-    </div>
         <div className="container px-5 py-24 mx-auto bg-cyan-50">
             <div className="flex flex-wrap w-full mb-20">
             <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
@@ -50,13 +49,13 @@ const Hero: React.FunctionComponent <Props> = ({ data, countProjectsAR }) => {
                 Diferentes organizaciones sin fines de lucro 
                 necesitan recursos, herramientas, capacitación 
                 y el apoyo de todos para servir a sus comunidades. <br />
-                Entre los {countProjectsAR} proyectos se involucran 
+                Entre los {data.projects.numberFound} proyectos se involucran 
                 temáticas como la educación, la salud, la igualdad de género,
                 la justicia, los derechos humanos, etc.
             </p>
             </div>
             <div className="flex flex-wrap m-4">
-                {data.slice(0,6).map((project: any) => (
+                {data.projects.project.slice(0,6).map((project: any) => (
                     <Project 
                         data={project}
                         key={project.id}
