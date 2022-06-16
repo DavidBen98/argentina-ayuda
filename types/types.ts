@@ -15,8 +15,16 @@ export interface Proj {
     title: string, 
     description: string, 
     activities: string,
-    organization :string,
+    organization: organization,
     themeName: string,
+    funding: string,
+    goal: string,
+    numberOfDonations: string,
+    remaining: string,
+    need: string,
+    summary: string,
+    longTermImpact: string,
+    projectLink: string,
 }
 
 export interface imagelink{
@@ -25,4 +33,8 @@ export interface imagelink{
             url: string
         }
     >
+}
+
+export interface organization{
+    name: string,
 }

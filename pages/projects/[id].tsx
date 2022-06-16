@@ -2,6 +2,7 @@ import type {GetStaticPaths, GetStaticProps, NextPage} from "next";
 import type {ParsedUrlQuery} from "querystring";
 import { DataProject, Proj } from "../../types/types";
 import { getProjectsAR, getProject } from "../../services/getDataAPI";
+import Project from "../../src/components/Project";
 
 interface Props {
   project: DataProject;
@@ -13,7 +14,6 @@ interface Params extends ParsedUrlQuery {
 
 export const getStaticProps: GetStaticProps<Props, Params> = async ({params}) => {
   const {id} = params as Params;
-  console.log(id);
   const project = await getProject(id)
 
   if (!projects) {
@@ -44,10 +44,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 const projects: NextPage<Props> = ({project}) => {
-  console.log(project.projects.project[0]);
+  console.log(project)
   return (
     <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-
+      <Project data={project.projects.project[0]} location='project' portada={false} />
     </div>
   );
 };
