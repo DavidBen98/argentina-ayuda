@@ -38,7 +38,7 @@ const Slider: React.FunctionComponent <Props> = ({ projects }) => {
 			<Zoom {...zoomInProperties}>
 				{projects.map((project,index) => (
 					<div key={index} className="flex justify-center w-full cursor-pointer">
-            <Link href={`projects/${project.id.toString()}`}>
+            <Link href={`/projects/${project.id.toString()}`}>
               <div className='relative h-3/5'>
                 <img
                   src={project.image.imagelink[5].url}

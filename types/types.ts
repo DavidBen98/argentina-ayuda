@@ -1,4 +1,4 @@
-export interface DataProject {
+export interface ObjectAPI {
     projects : Projects,
 }
 
@@ -25,6 +25,7 @@ export interface Proj {
     summary: string,
     longTermImpact: string,
     projectLink: string,
+    additionalDocumentation: string,
 }
 
 export interface imagelink{
@@ -37,4 +38,9 @@ export interface imagelink{
 
 export interface organization{
     name: string,
+    city: string,
+    activeProjects: string,
+    logoUrl: string,
+    url: string,
+    addressLine1: string,
 }

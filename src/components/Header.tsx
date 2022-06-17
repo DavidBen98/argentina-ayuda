@@ -1,6 +1,7 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { Logo } from '../../utils/svg'
+import logo from '../assets/logo-sun.png'
 
 const Header = () => {
   return (
@@ -8,7 +9,7 @@ const Header = () => {
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <Link href='/'>
           <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-            {Logo()}
+            <Image src={logo} width="50" height="50"/>
             <span className="mx-2 text-xl">Argentina ayuda</span>
           </a>
         </Link>
@@ -25,7 +26,7 @@ const Header = () => {
         </nav>
         <a 
           href="https://www.globalgiving.org/search/?size=25&nextPage=1&sortField=sortorder&selectedLocations=00argent&loadAllResults=true"
-          className="inline-flex items-center bg-blue-400 border-0 py-2 text-slate-50 hover:text-slate-50 px-3 focus:outline-none hover:bg-blue-500 hover:cursor-pointer rounded text-base mt-4 md:mt-0"
+          className="inline-flex items-center bg-blue-400 border-0 py-2 px-3 text-slate-50 rounded text-base focus:outline-none hover:bg-blue-500 hover:cursor-pointer mt-4 md:mt-0"
           target="_blank"
         >
           Dona ahora

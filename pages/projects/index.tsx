@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import type { NextPage } from 'next'
+import Link from 'next/link'
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import { getCountProjectsAR, getProjectsAR, getNextProjectsAR} from '../../services/getDataAPI'
 import Project from '../../src/components/Project'
 import Slider from "../../src/components/Slider"
-import { DataProject } from "../../types/types"
+import { ObjectAPI } from "../../types/types"
 
 interface Props {
-  data: DataProject,
+  data: ObjectAPI,
 }
 
 const index: NextPage<Props> = ({ data }) => {
@@ -60,6 +61,7 @@ const index: NextPage<Props> = ({ data }) => {
         <div className='w-1/3 relative'>
           <input 
             type="text" 
+            id="search"
             placeholder='Buscar...'
             className='w-full py-4 pl-2 border-2 rounded'
             value={project}
@@ -86,8 +88,10 @@ const index: NextPage<Props> = ({ data }) => {
       </div>
 
       <div className='flex w-full justify-center bg-gray-100'>
-        {actualPage !== 1 &&
-          <button onClick={() => getMoreProjects(idPrev, nextId, false)} className='m-2 p-4 bg-blue-400 text-white hover:bg-blue-500 rounded'> Anterior </button>
+        {actualPage > 1 &&
+          <Link href="/projects/#search">
+            <button onClick={() => getMoreProjects(idPrev, nextId, false)} className='m-2 p-4 bg-blue-400 text-white hover:bg-blue-500 rounded'> Anterior </button>
+          </Link>
         }
         <span className='m-2 p-4 rounded'>
           <span className='bg-gray-400 rounded p-4 mx-2 hover:cursor-pointer text-white'>
@@ -95,8 +99,10 @@ const index: NextPage<Props> = ({ data }) => {
           </span>
           de {pages} 
         </span>
-        {actualPage !== pages &&
-          <button onClick={() => getMoreProjects(idPrev, nextId, true)} className='m-2 p-4 bg-blue-400 text-white hover:bg-blue-500 rounded'> Siguiente </button>
+        {actualPage < pages &&
+          <Link href="/projects/#search">
+            <button onClick={() => getMoreProjects(idPrev, nextId, true)} className='m-2 p-4 bg-blue-400 text-white hover:bg-blue-500 rounded'> Siguiente </button>
+          </Link>
         }
       </div>
     </>
