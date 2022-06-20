@@ -3,6 +3,10 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ['dummyimage.com', 'www.globalgiving.org', 'api.globalgiving.org'],
+  },
+  i18n : {
+    locales: ['es' , 'en'],
+    defaultLocale: 'es',
   }
 }
 

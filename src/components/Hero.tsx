@@ -25,12 +25,12 @@ const Hero: React.FunctionComponent <Props> = ({ data }) => {
                     la realidad de muchos argentinos.
                 </p>
                 <div className="flex justify-center sm:mb-8">
-                    <Link href="projects">
+                    <Link href="/projects">
                         <button className="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">
                             Ayudá
                         </button>
                     </Link>
-                    <Link href="about">
+                    <Link href="/about">
                         <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
                             Sobre nosotros
                         </button>
@@ -69,7 +69,7 @@ const Hero: React.FunctionComponent <Props> = ({ data }) => {
                 ))}
             </div>
             <div className='flex'>
-                <Link href="projects">
+                <Link href="/projects">
                     <a className='m-auto bg-blue-400 hover:bg-blue-500 rounded px-24 py-4 font-semibold text-white'>
                         Ver todos los proyectos
                     </a>

@@ -3,10 +3,10 @@ export interface ObjectAPI {
 }
 
 export interface Projects {
-    project: Proj[],
     hasNext: boolean,
     nextProjectId: number,
     numberFound : number
+    project: Proj[],
 }
 
 export interface Proj {

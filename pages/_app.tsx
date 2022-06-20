@@ -8,6 +8,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        <title>Argentina ayuda</title>
         <link rel="shortcut icon" href='logo-sun.ico' />
       </Head>
 

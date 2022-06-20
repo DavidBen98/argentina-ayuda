@@ -2,7 +2,6 @@ import React from 'react'
 import { Zoom } from 'react-slideshow-image';
 import "react-slideshow-image/dist/styles.css"
 import { Proj } from '../../types/types'
-import Image from "next/image"
 import Project from './Project';
 import Link from "next/link"
 
@@ -36,9 +35,9 @@ const Slider: React.FunctionComponent <Props> = ({ projects }) => {
   return (
     <div className="m-10">
 			<Zoom {...zoomInProperties}>
-				{projects.map((project,index) => (
-					<div key={index} className="flex justify-center w-full cursor-pointer">
-            <Link href={`/projects/${project.id.toString()}`}>
+				{projects.map((project) => (
+					<div key={project.id} className="flex justify-center w-full cursor-pointer">
+            <Link href={`/projects/${project.id}`}>
               <div className='relative h-3/5'>
                 <img
                   src={project.image.imagelink[5].url}
@@ -47,7 +46,6 @@ const Slider: React.FunctionComponent <Props> = ({ projects }) => {
                   />
                 <Project 
                     data={project}
-                    key={project.id}
                     location='projects'
                     portada = {true}
                 />
