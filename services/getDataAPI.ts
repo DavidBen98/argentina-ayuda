@@ -58,7 +58,7 @@ export async function translate(data: string){
         method: 'POST',
         headers: {
             'content-type': 'application/json',
-            'X-RapidAPI-Key': 'd79d368ad3msh31b240e8f038c2cp10915bjsn441e57c0166d',
+            'X-RapidAPI-Key': 'YOU_API_KEY',
             'X-RapidAPI-Host': 'deep-translate1.p.rapidapi.com'
         },
         body: `{"q": "${data}","source":"en","target":"es"}`
