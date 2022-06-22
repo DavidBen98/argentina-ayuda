@@ -9,7 +9,7 @@ const Header = () => {
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <Link href='/'>
           <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-            <Image src={logo} width="50" height="50"/>
+            <Image src={logo} width="50" height="50" alt="Logo"/>
             <span className="mx-2 text-xl">Argentina ayuda</span>
           </a>
         </Link>
@@ -27,7 +27,8 @@ const Header = () => {
         <a 
           href="https://www.globalgiving.org/search/?size=25&nextPage=1&sortField=sortorder&selectedLocations=00argent&loadAllResults=true"
           className="inline-flex items-center bg-blue-400 border-0 py-2 px-3 text-slate-50 rounded text-base focus:outline-none hover:bg-blue-500 hover:cursor-pointer mt-4 md:mt-0"
-          target="_blank"
+          target="_blank" 
+          rel="noopener noreferrer"
         >
           Donate now
           <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">

@@ -1,51 +1,61 @@
-import React, {useState } from 'react'
 import type { NextPage } from 'next'
 import Link from 'next/link'
 import { GetStaticProps } from 'next'
-import { getProjectsAR, getNextProjectsAR} from '../../services/getDataAPI'
+import { getProjectsAR } from '../../services/getDataAPI'
 import Project from '../../src/components/Project'
 import Slider from "../../src/components/Slider"
 import { ObjectAPI } from "../../types/types"
 import Head from 'next/head'
+import useProjectsStates from '../../hooks/useProjectsStates'
 
 interface Props {
   data: ObjectAPI,
 }
 
 const index: NextPage<Props> = ({ data }) => {
-  const [project, setProject] = useState("");
-  const [projects, setProjects] = useState(data);
-  const [amountProj, setAmountProj] = useState(data.projects.numberFound);
-  const [pages, setPages] = useState(Math.ceil(amountProj / 9));
-  const [actualPage, setActualPage] = useState(1);
-  const [idPrev , setIdPrev] = useState([0]);
-  const [nextId , setNextId] = useState(data.projects.nextProjectId);
+  // const [project, setProject] = useState("");
+  // const [projects, setProjects] = useState(data);
+  // const [amountProj, setAmountProj] = useState(data.projects.numberFound);
+  // const [pages, setPages] = useState(Math.ceil(amountProj / 9));
+  // const [actualPage, setActualPage] = useState(1);
+  // const [idPrev , setIdPrev] = useState([0]);
+  // const [nextId , setNextId] = useState(data.projects.nextProjectId);
 
-  async function getMoreProjects (id : Array<number>, nextId: number, next: boolean){
-    let newProjects = null;
+  // async function getMoreProjects (id : Array<number>, nextId: number, next: boolean){
+  //   let newProjects = null;
 
-    if (data.projects.hasNext){
-      if (next){
-        newProjects = await getNextProjectsAR(nextId)
-      } else {
-        newProjects = await getNextProjectsAR(id[id.length-2])
-      }
-    }
+  //   if (data.projects.hasNext){
+  //     if (next){
+  //       newProjects = await getNextProjectsAR(nextId)
+  //     } else {
+  //       newProjects = await getNextProjectsAR(id[id.length-2])
+  //     }
+  //   }
 
-    if (next){
-      setActualPage(actualPage+1);
-      setIdPrev ([...id, projects.projects.nextProjectId])
-      setNextId (newProjects.projects.nextProjectId)
-    } else {
-      const newNextId = id[id.length-1];
-      setActualPage(actualPage-1);
-      setNextId (newNextId)
-      setIdPrev (idPrev.filter((elem: number) => elem !== newNextId))
-    }
+  //   if (next){
+  //     setActualPage(actualPage+1);
+  //     setIdPrev ([...id, projects.projects.nextProjectId])
+  //     setNextId (newProjects.projects.nextProjectId)
+  //   } else {
+  //     const newNextId = id[id.length-1];
+  //     setActualPage(actualPage-1);
+  //     setNextId (newNextId)
+  //     setIdPrev (idPrev.filter((elem: number) => elem !== newNextId))
+  //   }
 
-    setProjects (newProjects);
-  }
+  //   setProjects (newProjects);
+  // }
 
+  const {project,
+    projects,
+    amountProj,
+    pages,
+    actualPage,
+    idPrev,
+    nextId,
+    getMoreProjects
+  } = useProjectsStates(data);
+  
   const banners = data.projects.project.slice(7,10);
 
   // const handleChange = (e:any) => {

@@ -10,7 +10,7 @@ const Footer: React.FunctionComponent = () => {
         <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
             <Link href='/'>
                 <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-                    <Image src={logo} width="70" height="40"/>
+                    <Image src={logo} width="70" height="40" alt="Logo"/>
                 </a>
             </Link >
 
@@ -18,10 +18,10 @@ const Footer: React.FunctionComponent = () => {
                 <a href="https://www.linkedin.com/in/david-benedette/" className="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">David Benedette</a>
             </p>
             <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-            <a href="https://www.linkedin.com/in/david-benedette/" target="_blank" className="ml-3 text-gray-500">
+            <a href="https://www.linkedin.com/in/david-benedette/" target="_blank" rel="noopener noreferrer" className="ml-3 text-gray-500">
                 {Linkedin()}
             </a>
-            <a href="https://github.com/DavidBen98/" target="_blank" className="ml-3 text-gray-500">
+            <a href="https://github.com/DavidBen98/" target="_blank" rel="noopener noreferrer" className="ml-3 text-gray-500">
                 {Github()}
             </a>
             </span>

@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Proj } from "../../types/types"
+import Image from "next/image"
 
 interface Props {
     data: Proj,
@@ -47,7 +48,13 @@ const Project: React.FunctionComponent <Props> = ({ data, location, banner}) => 
             <>
                 <div className="xl:w-1/3 md:w-1/2 p-4 min-h-86">
                     <div className="bg-gray-100 p-6 rounded-lg flex flex-wrap">
-                        <img width="100%" height="40px" className="h-40 rounded w-full object-cover object-center mb-6" src={image} alt={title} />
+                        <img 
+                        width="100%" 
+                        height="40px" 
+                        className="h-40 rounded w-full object-cover object-center mb-6" 
+                        src={image} 
+                        alt={title} 
+                        />
                         <h3 className="tracking-widest text-blue-500 text-xs font-medium title-font w-full">{themeName}</h3>
                         <h2 className="text-lg text-gray-900 font-medium title-font mb-4 h-16">{title}</h2>
                         <span>
@@ -133,7 +140,7 @@ const Project: React.FunctionComponent <Props> = ({ data, location, banner}) => 
                         <span>
                             <h3 className="font-semibold text-2xl mb-2">Additional documentation</h3>
                             <p className="leading-relaxed truncate whitespace-normal mb-8 text-xl">
-                                <a href={additionalDocumentation} target="_blank" className="border-b-2 border-blue-400 text-blue-400 hover:text-blue-500 hover:border-blue-500">
+                                <a href={additionalDocumentation} target="_blank" rel="noopener noreferrer" className="border-b-2 border-blue-400 text-blue-400 hover:text-blue-500 hover:border-blue-500">
                                     This project has additional information in a PDF file (projdoc.pdf).
                                 </a>
                             </p>
@@ -170,7 +177,7 @@ const Project: React.FunctionComponent <Props> = ({ data, location, banner}) => 
                             <span className="text-3xl font-bold w-full text-center" style={{color: "#F9F871"}} title="United States Dollars">${Math.round(Number(remaining))}</span> 
                             <span>to reach the goal</span>
                         </p>
-                        <a href={projectLink} target="_blank" className="flex items-center justify-center bg-blue-400 border-0 py-4 px-3 m-auto text-slate-50 rounded w-9/12 text-base focus:outline-none hover:bg-blue-500 hover:cursor-pointer mt-4">
+                        <a href={projectLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center bg-blue-400 border-0 py-4 px-3 m-auto text-slate-50 rounded w-9/12 text-base focus:outline-none hover:bg-blue-500 hover:cursor-pointer mt-4">
                             DONATE NOW
                             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">
                                 <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -190,7 +197,7 @@ const Project: React.FunctionComponent <Props> = ({ data, location, banner}) => 
                             </h4>
                             <h4 className="text-base mt-4">
                                 <span className="font-semibold">WEB SITE: </span>
-                                <a href={organization.url} target="_blank" className="text-blue-400 border-blue-400 hover:border-blue-500 hover:border-b-2 hover:text-blue-500 cursor-pointer">{organization.url}</a>
+                                <a href={organization.url} target="_blank" rel="noopener noreferrer" className="text-blue-400 border-blue-400 hover:border-blue-500 hover:border-b-2 hover:text-blue-500 cursor-pointer">{organization.url}</a>
                             </h4>
                         </div>
                     </div>

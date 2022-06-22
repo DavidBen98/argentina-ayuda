@@ -36,13 +36,13 @@ const about = () => {
                 At first I did not know how I could help others through my
                 knowledge in programming. So I started looking for different ways
                 but none satisfied me.
-                And at that moment I thought, what if I help others to help? It's a simple slogan
+                And at that moment I thought, what if I help others to help? It&apos;s a simple slogan
                 and clear. <br /> 
                 In this way, the need arose to look for projects that require
                 of our collaboration, but again new questions arose:
                 Why would others help on just one project? Is it more convenient to help
                 in health or education? Why close to a single theme? <br /> 
-                Asking and cross-questioning give rise to the best ideas. It's what led me to
+                Asking and cross-questioning give rise to the best ideas. It&apos;s what led me to
                 beginning to want to cover as much as possible, although with the passage of time
                 another idea occurred to me: what if we help in many projects but that they are
                 close to us? <br />
@@ -51,7 +51,7 @@ const about = () => {
                 Canteens, picnic areas, sports clubs, promotion societies, etc.
                 all associations that tirelessly help the community.  <br />
                 Thus, Argentina Ayuda emerged, a website that connects the needs of
-                Argentine citizens with people who are willing to "give a hand", such as
+                Argentine citizens with people who are willing to &apos;&apos;give a hand&apos;&apos;, such as
                 it is said here.
               </p>
             </section>
@@ -62,7 +62,7 @@ const about = () => {
               </h2>
               <p className="block rounded py-4 text-lg w-5/6">
                 Whenever a project is interesting to you, you can browse from its
-                particular page to the "Global Giving" site that allows you
+                particular page to the &apos;&apos;Global Giving&apos;&apos; site that allows you
                 make donations in the amounts you want, through different
                 payment methods. <br />
                 The other way is by sharing this site among your contacts and in
@@ -72,7 +72,7 @@ const about = () => {
             </section>
           </div>
         <div className='w-3/12 pt-8'>
-          <Image src={logo} className="object-contain" />
+          <Image src={logo} className="object-contain" alt="Logo" />
         </div>
         </div>
       </div>
