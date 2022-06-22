@@ -34,7 +34,7 @@ export async function getCountProjectsAR(){
     return countProjectsAR
 }
 
-export async function getNextProjectsAR(nextProject: any) {
+export async function getNextProjectsAR(nextProject: number | string) {
     let url = "";
     if (nextProject === 0){
         url = `https://api.globalgiving.org/api/public/projectservice/countries/AR/projects/active?api_key=${process.env.GLOBAL_API_KEY}`
@@ -42,10 +42,32 @@ export async function getNextProjectsAR(nextProject: any) {
         url = `https://api.globalgiving.org/api/public/projectservice/countries/AR/projects/active?api_key=${process.env.GLOBAL_API_KEY}&nextProjectId=${nextProject}`
     }
 
-    console.log(url);
+    console.log(url)
 
     const projectsAR = await fetch (url, headers)
     const data = await projectsAR.json()
 
     return data
+    // const TranslatedData = translate(data);
+
+    // return TranslatedData;
+}
+
+export async function translate(data: string){
+    const options = {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+            'X-RapidAPI-Key': 'd79d368ad3msh31b240e8f038c2cp10915bjsn441e57c0166d',
+            'X-RapidAPI-Host': 'deep-translate1.p.rapidapi.com'
+        },
+        body: `{"q": "${data}","source":"en","target":"es"}`
+    };
+
+    return (
+        fetch('https://deep-translate1.p.rapidapi.com/language/translate/v2', options)
+        .then(response => response.json())
+        .then(response => response.translations.translatedText)
+        .catch(err => console.error(err))
+    )
 }

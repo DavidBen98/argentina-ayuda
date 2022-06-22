@@ -1,6 +1,6 @@
-import type {GetStaticPaths, GetStaticProps, NextPage, GetServerSideProps} from "next";
+import type {GetStaticPaths, GetStaticProps, NextPage } from "next";
 import type {ParsedUrlQuery} from "querystring";
-import { ObjectAPI, Proj, Projects, imagelink } from "../../types/types";
+import { ObjectAPI, Proj } from "../../types/types";
 import { getProjectsAR, getProject } from "../../services/getDataAPI";
 import Project from "../../src/components/Project";
 import Head from "next/head";
@@ -79,7 +79,7 @@ const projects: NextPage<Props> = ({project}) => {
       </Head>
 
       <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-        <Project data={dataProject} location='project' portada={false} />
+        <Project data={dataProject} location='project' banner={false} />
       </div>
     </>
   );

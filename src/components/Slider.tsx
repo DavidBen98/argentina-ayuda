@@ -35,7 +35,7 @@ const Slider: React.FunctionComponent <Props> = ({ projects }) => {
   return (
     <div className="m-10">
 			<Zoom {...zoomInProperties}>
-				{projects.map((project) => (
+				{projects.map((project: Proj) => (
 					<div key={project.id} className="flex justify-center w-full cursor-pointer">
             <Link href={`/projects/${project.id}`}>
               <div className='relative h-3/5'>
@@ -47,7 +47,7 @@ const Slider: React.FunctionComponent <Props> = ({ projects }) => {
                 <Project 
                     data={project}
                     location='projects'
-                    portada = {true}
+                    banner = {true}
                 />
               </div>
             </Link>

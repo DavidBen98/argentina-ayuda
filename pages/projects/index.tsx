@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState } from 'react'
 import type { NextPage } from 'next'
 import Link from 'next/link'
-import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
-import { getCountProjectsAR, getProjectsAR, getNextProjectsAR} from '../../services/getDataAPI'
+import { GetStaticProps } from 'next'
+import { getProjectsAR, getNextProjectsAR} from '../../services/getDataAPI'
 import Project from '../../src/components/Project'
 import Slider from "../../src/components/Slider"
 import { ObjectAPI } from "../../types/types"
@@ -18,8 +18,8 @@ const index: NextPage<Props> = ({ data }) => {
   const [amountProj, setAmountProj] = useState(data.projects.numberFound);
   const [pages, setPages] = useState(Math.ceil(amountProj / 9));
   const [actualPage, setActualPage] = useState(1);
-  const [idPrev , setIdPrev]: any = useState([0]);
-  const [nextId , setNextId] : any = useState(data.projects.nextProjectId);
+  const [idPrev , setIdPrev] = useState([0]);
+  const [nextId , setNextId] = useState(data.projects.nextProjectId);
 
   async function getMoreProjects (id : Array<number>, nextId: number, next: boolean){
     let newProjects = null;
@@ -46,7 +46,7 @@ const index: NextPage<Props> = ({ data }) => {
     setProjects (newProjects);
   }
 
-  const portadas = data.projects.project.slice(7,10);
+  const banners = data.projects.project.slice(7,10);
 
   // const handleChange = (e:any) => {
   //   setProject(e.target.value)
@@ -55,11 +55,11 @@ const index: NextPage<Props> = ({ data }) => {
   return (
     <>
       <Head>
-        <title>Argentina ayuda | Proyectos </title>
+        <title>Argentina ayuda | Projects </title>
       </Head>
       
       <div>
-        <Slider projects={portadas} />
+        <Slider projects={banners} />
       </div> 
       
       <div className='flex justify-center w-full mt-8'>
@@ -87,7 +87,7 @@ const index: NextPage<Props> = ({ data }) => {
             data={project}
             key={project.id}
             location='projects'
-            portada = {false}
+            banner = {false}
           />
         ))}
       </div>
@@ -95,18 +95,18 @@ const index: NextPage<Props> = ({ data }) => {
       <div className='flex w-full justify-center bg-gray-100'>
         {actualPage > 1 &&
           <Link href="/projects/#search">
-            <button onClick={() => getMoreProjects(idPrev, nextId, false)} className='m-2 p-4 bg-blue-400 text-white hover:bg-blue-500 rounded'> Anterior </button>
+            <button onClick={() => getMoreProjects(idPrev, nextId, false)} className='m-2 p-4 bg-blue-400 text-white hover:bg-blue-500 rounded'> Previous </button>
           </Link>
         }
         <span className='m-2 p-4 rounded'>
           <span className='bg-gray-400 rounded p-4 mx-2 hover:cursor-pointer text-white'>
             {actualPage} 
           </span>
-          de {pages} 
+          of {pages} 
         </span>
         {actualPage < pages &&
           <Link href="/projects/#search">
-            <button onClick={() => getMoreProjects(idPrev, nextId, true)} className='m-2 p-4 bg-blue-400 text-white hover:bg-blue-500 rounded'> Siguiente </button>
+            <button onClick={() => getMoreProjects(idPrev, nextId, true)} className='m-2 p-4 bg-blue-400 text-white hover:bg-blue-500 rounded'> Next </button>
           </Link>
         }
       </div>
