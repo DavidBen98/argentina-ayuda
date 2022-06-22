@@ -5,8 +5,10 @@ const headers = { headers :
     }
 }
 
+const apiKey = process.env.NEXT_PUBLIC_KEY;
+
 export async function getProjectsAR() {
-    const url = `https://api.globalgiving.org/api/public/projectservice/countries/AR/projects/active?api_key=${process.env.GLOBAL_API_KEY}`
+    const url = `https://api.globalgiving.org/api/public/projectservice/countries/AR/projects/active?api_key=${apiKey}`
 
     const projectsAR = await fetch (url, headers)
     const data = await projectsAR.json()
@@ -16,7 +18,7 @@ export async function getProjectsAR() {
 
 export async function getProject(id: string) {
     let idNumber = parseInt(id);
-    const url = `https://api.globalgiving.org/api/public/projectservice/projects/collection/ids?api_key=${process.env.GLOBAL_API_KEY}&projectIds=${idNumber}`
+    const url = `https://api.globalgiving.org/api/public/projectservice/projects/collection/ids?api_key=${apiKey}&projectIds=${idNumber}`
 
     const project = await fetch (url, headers)
     const data = await project.json()
@@ -25,7 +27,7 @@ export async function getProject(id: string) {
 }
 
 export async function getCountProjectsAR(){
-    const url = `https://api.globalgiving.org/api/public/projectservice/regions/countries/projects/active/count?api_key=${process.env.GLOBAL_API_KEY}`
+    const url = `https://api.globalgiving.org/api/public/projectservice/regions/countries/projects/active/count?api_key=${apiKey}`
     
     const countProjectsAR = await fetch (url, headers)
     .then ((res) => res.json())
@@ -37,9 +39,9 @@ export async function getCountProjectsAR(){
 export async function getNextProjectsAR(nextProject: number | string) {
     let url = "";
     if (nextProject === 0){
-        url = `https://api.globalgiving.org/api/public/projectservice/countries/AR/projects/active?api_key=${process.env.GLOBAL_API_KEY}`
+        url = `https://api.globalgiving.org/api/public/projectservice/countries/AR/projects/active?api_key=${apiKey}`
     } else {
-        url = `https://api.globalgiving.org/api/public/projectservice/countries/AR/projects/active?api_key=${process.env.GLOBAL_API_KEY}&nextProjectId=${nextProject}`
+        url = `https://api.globalgiving.org/api/public/projectservice/countries/AR/projects/active?api_key=${apiKey}&nextProjectId=${nextProject}`
     }
 
     const projectsAR = await fetch (url, headers)
