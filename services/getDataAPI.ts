@@ -42,15 +42,10 @@ export async function getNextProjectsAR(nextProject: number | string) {
         url = `https://api.globalgiving.org/api/public/projectservice/countries/AR/projects/active?api_key=${process.env.GLOBAL_API_KEY}&nextProjectId=${nextProject}`
     }
 
-    console.log(url)
-
     const projectsAR = await fetch (url, headers)
     const data = await projectsAR.json()
 
     return data
-    // const TranslatedData = translate(data);
-
-    // return TranslatedData;
 }
 
 export async function translate(data: string){
