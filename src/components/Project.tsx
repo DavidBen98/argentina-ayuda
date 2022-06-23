@@ -114,34 +114,34 @@ const Project: React.FunctionComponent <Props> = ({ data, location, banner}) => 
                 </div>
                 <div className="lg:w-8/12 lg:pl-4 sm:w-full text-center">
                     <img width="100%" className="rounded object-cover object-center mb-6" src={image} alt={title} />
-                    <span className="px-2">
+                    <span>
                         <h3 className="font-semibold text-2xl mb-2">Resume</h3>
-                        <p className="leading-relaxed truncate whitespace-normal mb-8 text-xl">
+                        <p className="leading-relaxed truncate whitespace-normal mb-8 text-xl mx-4">
                             {summary}
                         </p>
                     </span>
-                    <span className="px-2">
+                    <span>
                         <h3 className="font-semibold text-2xl mb-2">Challenge</h3>
-                        <p className="leading-relaxed truncate whitespace-normal mb-8 text-xl">
+                        <p className="leading-relaxed truncate whitespace-normal mb-8 text-xl mx-4">
                             {description}
                         </p>
                     </span>
-                    <span className="px-2">
+                    <span>
                         <h3 className="font-semibold text-2xl mb-2">Solution</h3>
-                        <p className="leading-relaxed truncate whitespace-normal mb-8 text-xl">
+                        <p className="leading-relaxed truncate whitespace-normal mb-8 text-xl mx-4">
                             {need}
                         </p>
                     </span>
-                    <span className="px-2">
+                    <span>
                         <h3 className="font-semibold text-2xl mb-2">Long term impact</h3>
-                        <p className="leading-relaxed truncate whitespace-normal mb-8 text-xl">
+                        <p className="leading-relaxed truncate whitespace-normal mb-8 text-xl mx-4">
                             {longTermImpact}
                         </p>
                     </span>
                     {data.additionalDocumentation && 
                         <span>
                             <h3 className="font-semibold text-2xl mb-2">Additional documentation</h3>
-                            <p className="leading-relaxed truncate whitespace-normal mb-8 text-xl">
+                            <p className="leading-relaxed truncate whitespace-normal mb-8 text-xl mx-4">
                                 <a href={additionalDocumentation} target="_blank" rel="noopener noreferrer" className="border-b-2 border-blue-400 text-blue-400 hover:text-blue-500 hover:border-blue-500">
                                     This project has additional information in a PDF file (projdoc.pdf).
                                 </a>
@@ -187,12 +187,12 @@ const Project: React.FunctionComponent <Props> = ({ data, location, banner}) => 
                         </a>
                     </div>
                     <div className="bg-gray-800 rounded mt-4 lg:ml-4 p-4 lg:w-11/12 flex flex-wrap justify-center text-xl text-lime-50 sm:mx-auto">
-                        <div className="m-auto">
+                        <div className="m-auto w-full">
                             <h3 className="text-base opacity-80 text-center">Organization Information</h3>
                             <h2 className="text-3xl my-4 text-center">{organization.name}</h2>
                             <img src={organization.logoUrl} alt="Logo Organización" className="m-auto w-40 h-24 object-cover" />
                         </div>
-                        <div>
+                        <div className="text-center lg:text-left">
                             <h4 className="text-base mt-4">
                                 <span className="font-semibold">LOCATION: </span>
                                 {organization.city} - {organization.addressLine1}
