@@ -46,8 +46,8 @@ const Project: React.FunctionComponent <Props> = ({ data, location, banner}) => 
     if ((location === 'hero') || (location === 'projects' && !banner)){
         return (
             <>
-                <div className="xl:w-1/3 md:w-1/2 p-4 min-h-86">
-                    <div className="bg-gray-100 p-6 rounded-lg flex flex-wrap">
+                <div className="xl:w-1/3 lg:w-1/2 lg:p-4 min-h-86 w-full mb-8">
+                    <div className="bg-gray-100 p-4 m-2 lg:m-6 rounded-lg flex flex-wrap">
                         <img
                             width="100%" 
                             height="40px" 
@@ -56,7 +56,7 @@ const Project: React.FunctionComponent <Props> = ({ data, location, banner}) => 
                             alt={title} 
                         />
                         <h3 className="tracking-widest text-blue-500 text-xs font-medium title-font w-full">{themeName}</h3>
-                        <h2 className="text-lg text-gray-900 font-medium title-font mb-4 h-16">{title}</h2>
+                        <h2 className="text-lg text-gray-900 font-medium title-font mb-4 lg:h-16">{title}</h2>
                         <span>
                             <p className="leading-relaxed text-base h-40 truncate whitespace-normal">
                                 {description}
@@ -64,7 +64,7 @@ const Project: React.FunctionComponent <Props> = ({ data, location, banner}) => 
                             <span>...</span>
                         </span>
                         <Link href={`/projects/${id}`}> 
-                            <a className="bg-blue-400 hover:bg-blue-500 m-auto py-4 px-4 rounded text-white">
+                            <a className="bg-blue-400 hover:bg-blue-500 p-2 m-auto lg:py-4 lg:px-4 rounded text-white">
                                 See more
                             </a>
                         </Link>
@@ -76,17 +76,19 @@ const Project: React.FunctionComponent <Props> = ({ data, location, banner}) => 
 
     if (banner){ 
         return (  
-            <div className="absolute m-auto top-0 bottom-0 max-h-min rounded w-full flex justify-center align-center">
-                <div className="p-6 bg-black/80 rounded-lg flex flex-wrap w-8/12">
-                    <h3 className="tracking-widest text-blue-500 text-xs font-medium title-font w-full">
+            <div 
+                className="absolute m-auto top-0 bottom-0 lg:max-h-min rounded w-full flex justify-center align-center"
+            >
+                <div className=" p-2 lg:p-6 bg-black/80 rounded-lg flex flex-wrap w-full lg:w-8/12">
+                    <h3 className="tracking-widest text-blue-500 text-xs font-medium title-font w-full text-center lg:text-left">
                         {themeName}
                     </h3>
-                    <h2 className="text-lg text-white font-medium title-font mb-4">
+                    <h2 className="text-lg text-white font-medium title-font mb-4 text-center lg:text-left">
                         {title}
                     </h2>
                     <span>
-                        <p className="leading-relaxed text-white truncate whitespace-normal">
-                            {description}
+                        <p className="leading-relaxed text-white truncate whitespace-normal max-h-52 lg:max-h-max">
+                            {description} 
                         </p>
                     </span> 
                     {/* <Link href={`/projects/${id}`}>  */}
@@ -103,34 +105,34 @@ const Project: React.FunctionComponent <Props> = ({ data, location, banner}) => 
     }
 
     return (  
-        <div className="xl:w-11/12 p-4 min-h-86">
-              <div className="bg-gray-100 p-6 rounded-lg flex flex-wrap w-full">
-                <div className="bg-gray-100 p-6 rounded-lg flex flex-wrap justify-center w-full">
+        <div className="xl:w-11/12 lg:p-4 min-h-86 bg-cyan-50">
+              <div className="p-4 lg:p-6 rounded-lg flex flex-wrap w-full">
+                <div className="p-6 rounded-lg flex flex-wrap justify-center w-full">
                   <h3 className="tracking-widest text-blue-500 text-sm font-medium title-font w-full text-center">{themeName}</h3>
                   <h1 className="text-gray-900 font-normal text-4xl title-font w-full text-center">{title}</h1>
                   <h2 className="text-lg text-gray-900 font-medium title-font w-full text-center mt-2">{organization.name}</h2>
                 </div>
-                <div className="lg:w-8/12 pl-4 sm:w-full">
+                <div className="lg:w-8/12 lg:pl-4 sm:w-full text-center">
                     <img width="100%" className="rounded object-cover object-center mb-6" src={image} alt={title} />
-                    <span>
+                    <span className="px-2">
                         <h3 className="font-semibold text-2xl mb-2">Resume</h3>
                         <p className="leading-relaxed truncate whitespace-normal mb-8 text-xl">
                             {summary}
                         </p>
                     </span>
-                    <span>
+                    <span className="px-2">
                         <h3 className="font-semibold text-2xl mb-2">Challenge</h3>
                         <p className="leading-relaxed truncate whitespace-normal mb-8 text-xl">
                             {description}
                         </p>
                     </span>
-                    <span>
+                    <span className="px-2">
                         <h3 className="font-semibold text-2xl mb-2">Solution</h3>
                         <p className="leading-relaxed truncate whitespace-normal mb-8 text-xl">
                             {need}
                         </p>
                     </span>
-                    <span>
+                    <span className="px-2">
                         <h3 className="font-semibold text-2xl mb-2">Long term impact</h3>
                         <p className="leading-relaxed truncate whitespace-normal mb-8 text-xl">
                             {longTermImpact}
@@ -148,7 +150,7 @@ const Project: React.FunctionComponent <Props> = ({ data, location, banner}) => 
                     }
                 </div>
                 <div className="lg:w-4/12 sm:w-full">
-                    <div className="bg-gray-800 rounded ml-4 p-4 w-11/12 flex flex-wrap text-xl text-lime-50 sm:mx-auto">
+                    <div className="bg-gray-800 rounded lg:ml-4 p-4  lg:w-11/12 flex flex-wrap text-xl text-lime-50 mx-auto">
                         <p className="p-2 flex justify-center flex-wrap w-full">
                             <span className="w-full text-center">
                                 Have been collected 
@@ -184,7 +186,7 @@ const Project: React.FunctionComponent <Props> = ({ data, location, banner}) => 
                             </svg>
                         </a>
                     </div>
-                    <div className="bg-gray-800 rounded mt-4 ml-4 p-4 w-11/12 flex flex-wrap justify-center text-xl text-lime-50 sm:mx-auto">
+                    <div className="bg-gray-800 rounded mt-4 lg:ml-4 p-4 lg:w-11/12 flex flex-wrap justify-center text-xl text-lime-50 sm:mx-auto">
                         <div className="m-auto">
                             <h3 className="text-base opacity-80 text-center">Organization Information</h3>
                             <h2 className="text-3xl my-4 text-center">{organization.name}</h2>

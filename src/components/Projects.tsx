@@ -60,10 +60,10 @@ const Projects: React.FunctionComponent <Props> = ({data}) => {
             <div className='flex w-full justify-center bg-gray-100'>
                 {actualPage > 1 &&
                     <Link href="/projects/#search">
-                        <button onClick={() => getMoreProjects(idPrev, nextId, false)} className='m-2 p-4 bg-blue-400 text-white hover:bg-blue-500 rounded'> Previous </button>
+                        <button onClick={() => getMoreProjects(idPrev, nextId, false)} className='m-2 p-2 md:p-4 bg-blue-400 text-white hover:bg-blue-500 rounded'> Previous </button>
                     </Link>
                 }
-                <span className='m-2 p-4 rounded'>
+                <span className='m-2 py-4 md:p-4 rounded'>
                     <span className='bg-gray-400 rounded p-4 mx-2 hover:cursor-pointer text-white'>
                         {actualPage} 
                     </span>
@@ -71,7 +71,7 @@ const Projects: React.FunctionComponent <Props> = ({data}) => {
                 </span>
                 {actualPage < pages &&
                     <Link href="/projects/#search">
-                        <button onClick={() => getMoreProjects(idPrev, nextId, true)} className='m-2 p-4 bg-blue-400 text-white hover:bg-blue-500 rounded'> Next </button>
+                        <button onClick={() => getMoreProjects(idPrev, nextId, true)} className='m-2 p-2 md:p-4 bg-blue-400 text-white hover:bg-blue-500 rounded'> Next </button>
                     </Link>
                 }
             </div>

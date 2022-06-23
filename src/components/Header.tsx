@@ -13,15 +13,15 @@ const Header = () => {
             <span className="mx-2 text-xl">Argentina ayuda</span>
           </a>
         </Link>
-        <nav className="font-medium md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+        <nav className="font-medium w-full flex flex-wrap items-center text-base justify-around md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 md:justify-center md:w-auto">
           <Link href='/'>
-            <a className="mr-5 hover:text-gray-900">Home</a>
+            <a className="md:mr-5 hover:text-gray-900">Home</a>
           </Link>
           <Link href='/projects'>
-            <a className="mr-5 hover:text-gray-900">Projects</a>
+            <a className="md:mr-5 hover:text-gray-900">Projects</a>
           </Link>
           <Link href='/about'>
-            <a className="mr-5 hover:text-gray-900">About</a>
+            <a className="md:mr-5 hover:text-gray-900">About</a>
           </Link>
         </nav>
         <a 
